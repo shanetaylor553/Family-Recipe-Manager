@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Add Recipe{% endblock %}
+
+{% block content %}
+<form method="post">
+    <label for="name">Recipe Name</label>
+    <input id="name" name="name" required>
+
+    <label for="category_id">Category</label>
+    <select id="category_id" name="category_id" required>
+        <option value="" disabled selected>Select a category</option>
+        {% for category in categories %}
+            <option value="{{ category['id'] }}">{{ category['name'] }}</option>
+        {% endfor %}
+    </select>
+
+    <label for="description">Description</label>
+    <textarea id="description" name="description"></textarea>
+
+    <button type="submit">Add Recipe</button>
+</form>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Home | Family Recipes{% endblock %}
+{%- block content -%}
+<section class="home-hero">
+    <div class="hero-copy">
+        <p class="eyebrow">A little taste of home</p>
+    <h2>Welcome{% if username %}, {{ username }}{% endif %}!</h2>
+    {% if not username %}
+        <p><a href="{{ url_for('register') }}">Create an account</a> or <a href="{{ url_for('login') }}">log in</a> to get started.</p>
+    {% endif %}
+    <h3>What are we cooking today?</h3>
+    <ul class="home-categories">
+        <li><a href="{{ url_for('recipes', category='breakfast') }}">Breakfast <span>↗</span></a></li>
+        <li><a href="{{ url_for('recipes', category='lunch') }}">Lunch <span>↗</span></a></li>
+        <li><a href="{{ url_for('recipes', category='dinner') }}">Dinner <span>↗</span></a></li>
+        <li><a href="{{ url_for('recipes', category='snack') }}">Snack <span>↗</span></a></li>
+    </ul>
+    <a class="text-link" href="{{ url_for('recipes') }}">Browse all recipes <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="hero-image" role="img" aria-label="A colorful table of fresh food"></div>
+</section>
+<section class="home-note">
+    <p class="eyebrow">Made to be passed around</p>
+    <h3>Keep the recipes that bring everyone back to the table.</h3>
+    <p>Collect the dishes you love, find them when you need them, and keep the family favorites close.</p>
+</section>
+{%- endblock -%}

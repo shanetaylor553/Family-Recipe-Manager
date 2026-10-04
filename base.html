@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Family Recipes{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand" href="/" aria-label="Family Recipes home">
+                <span class="brand-mark" aria-hidden="true">FR</span>
+                <span>Family <em>Recipes</em></span>
+            </a>
+            <nav aria-label="Main navigation">
+                <ul class="site-nav">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/recipes">All Recipes</a></li>
+                    <li><a href="/categories">Categories</a></li>
+                    <li><a href="/about">About</a></li>
+                </ul>
+            </nav>
+            <div class="account-nav">
+                {% if session.get('user_id') %}
+                    <span class="signed-in">{{ username }}</span>
+                    <a class="button button-outline button-small" href="{{ url_for('logout') }}">Log out</a>
+                {% else %}
+                    <a class="login-link" href="{{ url_for('login') }}">Log in</a>
+                    <a class="button button-small" href="{{ url_for('register') }}">Join the table</a>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+    <main class="site-main">
+        {% block content %}{% endblock %}
+    </main>
+    <footer class="site-footer">
+        <p>Good food tastes better when its stories are kept.</p>
+        <a href="{{ url_for('about') }}">About Family Recipes</a>
+    </footer>
+</body>
+</html>

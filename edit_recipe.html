@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Recipe{% endblock %}
+
+{% block content %}
+<h2>Edit Recipe</h2>
+<form method="post">
+    <label for="name">Recipe Name</label>
+    <input id="name" name="name" value="{{ recipe['name'] }}" required>
+
+    <label for="category_id">Category</label>
+    <select id="category_id" name="category_id" required>
+        <option value="" disabled>Select a category</option>
+        {% for category in categories %}
+            <option value="{{ category['id'] }}" {% if category['id'] == recipe['category_id'] %}selected{% endif %}>{{ category['name'] }}</option>
+        {% endfor %}
+    </select>
+
+    <label for="description">Description</label>
+    <textarea id="description" name="description">{{ recipe['description'] }}</textarea>
+
+    <button type="submit">Save Changes</button>
+</form>
+{% endblock %}

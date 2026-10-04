@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Log in</h2>
+{% if error %}<p>{{ error }}</p>{% endif %}
+<form method="post">
+    <label for="login" placeholder="Username or Email">Username or Email</label>
+    <input id="login" name="login" required>
+
+    <label for="password">Password</label>
+    <input id="password" name="password" type="password" required>
+
+    <button type="submit">Log in</button>
+</form>
+<p>Need an account? <a href="{{ url_for('register') }}">Register</a>.</p>
+{% endblock %}

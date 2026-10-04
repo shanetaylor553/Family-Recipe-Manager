@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}About | Family Recipes{% endblock %}
+
+{% block content %}
+<article class="about-page">
+	<section class="about-hero">
+		<p class="eyebrow">The story behind the table</p>
+		<h1>Every family has a recipe worth keeping.</h1>
+		<p class="about-lede">Family Recipes is a simple home for the meals, notes, and traditions that make a kitchen feel like yours.</p>
+	</section>
+
+	<section class="about-story">
+		<div>
+			<p class="eyebrow">Why we made this</p>
+			<h2>Good recipes carry more than ingredients.</h2>
+		</div>
+		<div class="story-copy">
+			<p>They hold the Sunday dinners, quick weeknight fixes, handwritten adjustments, and familiar flavors people ask for again. This project is designed to make those recipes easier to gather, find, and revisit.</p>
+			<p>Keep your collection organized by category, search when you know what you are craving, and add or edit recipes as your kitchen traditions grow.</p>
+		</div>
+	</section>
+
+	<section class="about-values" aria-label="What you can do">
+		<div class="value-item">
+			<span class="value-number">01</span>
+			<h3>Keep it together</h3>
+			<p>Store your recipes in one clear, browsable collection.</p>
+		</div>
+		<div class="value-item">
+			<span class="value-number">02</span>
+			<h3>Find the right dish</h3>
+			<p>Search recipes and browse categories to get to dinner faster.</p>
+		</div>
+		<div class="value-item">
+			<span class="value-number">03</span>
+			<h3>Make it yours</h3>
+			<p>Add new favorites and update details as recipes evolve.</p>
+		</div>
+	</section>
+
+	<section class="about-signoff">
+		<h2>Here's to the recipes that feel like home.</h2>
+		<a class="button" href="{{ url_for('recipes') }}">Explore the recipes</a>
+	</section>
+</article>
+{% endblock %}

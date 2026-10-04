@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}{{ recipe['name'] }} | Family Recipes{% endblock %}
+
+{% block content %}
+<article class="recipe-detail">
+	<a class="text-link" href="{{ url_for('recipes') }}">&larr; All recipes</a>
+	<header class="recipe-heading">
+		<p class="eyebrow">{{ recipe['category'] }}</p>
+		<h1>{{ recipe['name'] }}</h1>
+		<p class="recipe-description">{{ recipe['description'] }}</p>
+		<div class="recipe-facts">
+			<span><strong>{{ recipe['prep_time_minutes'] }}</strong> min prep</span>
+			<span><strong>{{ recipe['cook_time_minutes'] }}</strong> min cook</span>
+			<span><strong>{{ recipe['servings'] }}</strong> servings</span>
+		</div>
+	</header>
+
+	<div class="recipe-body">
+		<section aria-labelledby="ingredients-heading">
+			<h2 id="ingredients-heading">Ingredients</h2>
+			<ul class="ingredient-list">
+				{% for ingredient in ingredients %}
+					<li><span>{{ ingredient['name'] }}</span><strong>{{ ingredient['quantity'] }}</strong></li>
+				{% endfor %}
+			</ul>
+		</section>
+
+		<section aria-labelledby="method-heading">
+			<h2 id="method-heading">Method</h2>
+			<ol class="step-list">
+				{% for step in steps %}
+					<li><span class="step-number">{{ step['step_number'] }}</span><p>{{ step['description'] }}</p></li>
+				{% endfor %}
+			</ol>
+		</section>
+	</div>
+</article>
+{% endblock %}
