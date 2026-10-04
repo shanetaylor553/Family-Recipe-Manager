@@ -1,4 +1,4 @@
-# Family Recipes
+# Family Recipes V 1.0
 #### Video Demo: https://youtu.be/AEliUSFeaAK?is+IQuqs4dzoXKvzedf
 #### Description: 
 Family Recipes is a small cookbook web app for collecting and browsing recipes in one dedicated place. It is built with Python and Flask, uses SQLite to store its data, and renders pages with Jinja templates and shared CSS.
